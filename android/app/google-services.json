@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "868941129701",
+    "project_id": "sentinix-26554",
+    "storage_bucket": "sentinix-26554.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868941129701:android:43bddca944f3a4a83fb10c",
+        "android_client_info": {
+          "package_name": "com.sentinix.deliveryman"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEX0Cv6ut7_3txcygDc5vkgrmInpRb5eo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868941129701:android:39a46401c47494e43fb10c",
+        "android_client_info": {
+          "package_name": "com.sentinix.ecommerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEX0Cv6ut7_3txcygDc5vkgrmInpRb5eo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868941129701:android:cbd1ba47bc7905fb3fb10c",
+        "android_client_info": {
+          "package_name": "com.sentinix.vendor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEX0Cv6ut7_3txcygDc5vkgrmInpRb5eo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
