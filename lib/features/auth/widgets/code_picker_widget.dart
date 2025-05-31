@@ -4,6 +4,7 @@ library country_code_picker;
 import 'package:collection/collection.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sixvalley_ecommerce/utill/color_resources.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
@@ -126,7 +127,7 @@ class CodePickerWidget extends StatefulWidget {
     List<Map<String, String>> jsonList = countryList;
 
     List<CountryCode> elements =
-    jsonList.map((json) => CountryCode.fromJson(json)).toList();
+        jsonList.map((json) => CountryCode.fromJson(json)).toList();
 
     if (comparator != null) {
       elements.sort(comparator);
@@ -134,12 +135,12 @@ class CodePickerWidget extends StatefulWidget {
 
     if (countryFilter != null && countryFilter!.isNotEmpty) {
       final uppercaseCustomList =
-      countryFilter!.map((criteria) => criteria.toUpperCase()).toList();
+          countryFilter!.map((criteria) => criteria.toUpperCase()).toList();
       elements = elements
           .where((criteria) =>
-      uppercaseCustomList.contains(criteria.code) ||
-          uppercaseCustomList.contains(criteria.name) ||
-          uppercaseCustomList.contains(criteria.dialCode))
+              uppercaseCustomList.contains(criteria.code) ||
+              uppercaseCustomList.contains(criteria.name) ||
+              uppercaseCustomList.contains(criteria.dialCode))
           .toList();
     }
 
@@ -171,8 +172,16 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
             direction: Axis.horizontal,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              SizedBox(width: 25, child: Image.asset(widget.fromCountryList? Images.country : Images.callIcon, color: Theme.of(context).primaryColor.withValues(alpha:.4),)),
-               SizedBox(width: widget.fromCountryList? Dimensions.paddingSizeDefault : Dimensions.paddingSizeExtraSmall),
+              SizedBox(
+                  width: 25,
+                  child: Image.asset(
+                    widget.fromCountryList ? Images.country : Images.callIcon,
+                    color: ColorResources.appPrimaryColor.withValues(alpha: .4),
+                  )),
+              SizedBox(
+                  width: widget.fromCountryList
+                      ? Dimensions.paddingSizeDefault
+                      : Dimensions.paddingSizeExtraSmall),
               if (widget.showFlagMain != null
                   ? widget.showFlagMain!
                   : widget.showFlag)
@@ -206,8 +215,6 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
                     overflow: widget.textOverflow,
                   ),
                 ),
-
-
             ],
           ),
         ),
@@ -230,13 +237,14 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
 
     if (oldWidget.initialSelection != widget.initialSelection) {
       if (widget.initialSelection != null) {
-        selectedItem = elements.firstWhere((criteria) =>
-            (criteria.code!.toUpperCase() ==
-                widget.initialSelection!.toUpperCase()) ||
-                (criteria.dialCode == widget.initialSelection) ||
-                (criteria.name!.toUpperCase() ==
-                    widget.initialSelection!.toUpperCase()),
-            orElse: () => elements[0],
+        selectedItem = elements.firstWhere(
+          (criteria) =>
+              (criteria.code!.toUpperCase() ==
+                  widget.initialSelection!.toUpperCase()) ||
+              (criteria.dialCode == widget.initialSelection) ||
+              (criteria.name!.toUpperCase() ==
+                  widget.initialSelection!.toUpperCase()),
+          orElse: () => elements[0],
         );
       } else {
         selectedItem = elements[0];
@@ -251,9 +259,9 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
 
     if (widget.initialSelection != null) {
       selectedItem = elements.firstWhere(
-              (item) =>
-          (item.code!.toUpperCase() ==
-              widget.initialSelection!.toUpperCase()) ||
+          (item) =>
+              (item.code!.toUpperCase() ==
+                  widget.initialSelection!.toUpperCase()) ||
               (item.dialCode == widget.initialSelection) ||
               (item.name!.toUpperCase() ==
                   widget.initialSelection!.toUpperCase()),
@@ -264,17 +272,17 @@ class CodePickerWidgetState extends State<CodePickerWidget> {
 
     favoriteElements = elements
         .where((item) =>
-    widget.favorite.firstWhereOrNull((criteria) =>
-    item.code!.toUpperCase() == criteria.toUpperCase() ||
-        item.dialCode == criteria ||
-        item.name!.toUpperCase() == criteria.toUpperCase()) !=
-        null)
+            widget.favorite.firstWhereOrNull((criteria) =>
+                item.code!.toUpperCase() == criteria.toUpperCase() ||
+                item.dialCode == criteria ||
+                item.name!.toUpperCase() == criteria.toUpperCase()) !=
+            null)
         .toList();
   }
 
   void showCodePickerWidgetDialog() async {
     final item = await showDialog(
-      barrierColor: widget.barrierColor ?? Colors.grey.withValues(alpha:0.5),
+      barrierColor: widget.barrierColor ?? Colors.grey.withValues(alpha: 0.5),
       context: context,
       builder: (context) => Center(
         child: Dialog(
